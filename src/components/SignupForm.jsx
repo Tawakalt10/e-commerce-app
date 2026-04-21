@@ -8,6 +8,7 @@ export default function SignupForm () {
 
 function onSubmit(event){
     event.preventDefault();
+    alert (`Email is : ${email} and Password is : ${password}`)
     
 }
 
@@ -15,14 +16,15 @@ return (
     <div style={{maxWidth: 400, margin:"2rem auto"}}>
         <h1>Sign Up</h1>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div style={{marginBottom: '1rem'}}>
                 <label>
                     Email
                     <input
                     type="email" 
                     placeholder='you@example.com'
-                    onChange={(e) => setEmail(e.target.value)}/>
+                    {...register("email", {required: "Email is required"})}
+                    /> 
                 </label>
 
             </div>
@@ -33,12 +35,15 @@ return (
                     <input
                     type='password'
                     placeholder='*******'
-                    onChange={(e) => setPassword(e.target.value)}
+                     {...register("password", {required: "Password is required"})}
+                   
                     />
                     
                 </label>
 
             </div>
+            
+            <button type='submit'> Create account</button>
 
         </form>
 
