@@ -1,26 +1,30 @@
  import React from 'react';
 import "./App.css";
-import SignupForm from './components/SignupForm';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home'
+import Checkout from './pages/Checkout';
+import Auth from './pages/Auth';
+import Navbar from './components/Navbar';
 
 
-export default function  App(){
+
+ function  App(){
      return (
-   <div>
-
+  <div className='app'>
     <Navbar />
     <Routes>
-   <Route  path="/"  element={HomePage} />
-   <Route  path="/profile"  element={ProfilePage} />
-   <Route  path="/login"  element={LoginPage} />
-   <Route  
-   path="*"
-    element={<h1 style={{padding:"0 1.5rem"}} > Not Found</h1>}/>
+      <Route path='/'  element={<Home />}/>
+      <Route path='/auth' element={<Auth />} />
+      <Route path='/checkout' element={<Checkout />} />
     </Routes>
-   </div>
-  )
+
+  </div>
+
+     );
+  
 }  
 
-
+export default App;
 
 
  
