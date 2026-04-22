@@ -17,6 +17,6 @@ export default  function ProductCard ({product}) {
                                 <button className="btn btn-primary"> Add to Cart</button>
                             </div>
                         </div>
-                    </div>
+                      </div>
     )
 }
