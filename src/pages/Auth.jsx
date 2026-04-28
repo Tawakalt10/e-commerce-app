@@ -1,17 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {useForm}  from"react-hook-form";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Auth() {
     const [mode, setMode] = useState("signup");
-
+   const {signUp} = useContext(AuthContext)
     const {
         register,
         handleSubmit,
         formState:{ errors},
     } = useForm();
 
-    function onSubmit () {
-        alert('signed');
+    function onSubmit (data) {
+        signUp(data.email, data.password);
     }
     return  ( 
     <div className="page"> 
@@ -28,6 +29,8 @@ export default function Auth() {
              type="email"
               id="email" 
               {...register('email', {required: "Email is required"})}/>
+             
+             {errors.email && (<span className="form-error">{errors.email.message}</span>)}
              </div>
 
                 <div className="form-group">
@@ -40,14 +43,16 @@ export default function Auth() {
                         message:"Password must be at least 6 characters",
                     },
                     maxLength:{
-                        value:13,
+                        value:12,
                         message:"Password must be at less than 12 characters",
                     },
                 })}
              className="form-input" 
-             type="passwords" 
+             type="password" 
              is="password"
-             />
+                  />
+
+          {errors.password && <span className="form-error">{errors.password.message}</span>}
              </div>
 
              <button type="submit" className="btn btn-primary btn-large">
