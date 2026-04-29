@@ -24,7 +24,7 @@ export default function AuthProvider ({children}) {
 
         setUser({email});
 
-        return{ sucess:true }  ;
+        return{ sucCess:true }  ;
     }
  
     function  login(email, password)  {

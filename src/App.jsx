@@ -5,7 +5,8 @@ import Home from './pages/Home'
 import Checkout from './pages/Checkout';
 import Auth from './pages/Auth';
 import Navbar from './components/Navbar';
-import AuthProvider from './context/AuthContext';
+import AuthProvider from './components/context/AuthContext';
+import ProductDetails from './pages/ProductDetails';
 
 
 
@@ -18,6 +19,7 @@ import AuthProvider from './context/AuthContext';
       <Route path='/'  element={<Home />}/>
       <Route path='/auth' element={<Auth />} />
       <Route path='/checkout' element={<Checkout />} />
+      <Route path='/products/:id' element={<ProductDetails />} />
     </Routes>
 
   </div>
