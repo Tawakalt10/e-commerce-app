@@ -1,4 +1,5 @@
 import { createContext, useState, useContext } from "react";
+import { getProductById } from "../data/products";
 
 const CartContext = createContext(null);
 
@@ -22,8 +23,15 @@ setCartItems(updatedCartIems);
     
  }
 
+ function getCartItemsWithProducts () {
+    return cartItems.map(item => ({
+        ...item, 
+        product: getProductById(item.id)
+    })).filter(item => item.product);
+ }
+
 return ( 
-   <CartContext.Provider value={{cartItems, addToCart }}> {children}
+   <CartContext.Provider value={{cartItems, addToCart, getCartItemsWithProducts }}> {children}
 
    </CartContext.Provider>
    

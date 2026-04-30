@@ -21,6 +21,7 @@ import CartProvider from './components/context/CartContext';
       <Route path='/auth' element={<Auth />} />
       <Route path='/checkout' element={<Checkout />} />
       <Route path='/products/:id' element={<ProductDetails />} />
+      <Route path='/products/:id' element={<ProductDetails />} />
     </Routes>
 
   </div>
