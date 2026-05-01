@@ -30,6 +30,10 @@ setCartItems(updatedCartIems);
     })).filter(item => item.product);
  }
 
+ function updateQuantity(productId, quantity) {
+    
+ }
+
 return ( 
    <CartContext.Provider value={{cartItems, addToCart, getCartItemsWithProducts }}> {children}
 

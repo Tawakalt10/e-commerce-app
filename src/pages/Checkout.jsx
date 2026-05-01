@@ -25,13 +25,19 @@ export default function Checkout() {
                                 
                                 </p>
                         </div>
-                        <div className="checkout-item-contols">
+                        <div className="checkout-item-controls">
                             <div className="quantity-controls">
                                 <button className="quantity-btn"></button>
                                 <span className="quantity-value"> {item.quantity}</span>
-                                <button className="quantity-btn"> +</button>
+                                <button className="quantity-btn"> + </button>
                             </div>
-
+                             
+                             <p className="checkout-item-total">
+                                ${item.product.price = item.quantity}
+                             </p>
+                             <button className="btn btn-secondary btn-small">
+                                Remove
+                             </button>
                         </div>
                         </div>
                 ))}
