@@ -1,7 +1,7 @@
 import { useCart } from "../components/context/CartContext"
 
 export default function Checkout() {
-    const {getCartItemsWithProducts} = useCart ();
+    const {getCartItemsWithProducts, updateQuantity, removeFromCart} = useCart ();
     const cartItems = getCartItemsWithProducts ();
     return ( 
     <div className="page">
@@ -27,15 +27,21 @@ export default function Checkout() {
                         </div>
                         <div className="checkout-item-controls">
                             <div className="quantity-controls">
-                                <button className="quantity-btn"></button>
+                                <button className="quantity-btn"
+                                onClick={() => updateQuantity(item.id, item.quantity -1)}>
+                                    -
+                                    </button>
                                 <span className="quantity-value"> {item.quantity}</span>
-                                <button className="quantity-btn"> + </button>
+                                <button className="quantity-btn"
+                                onClick={() => updateQuantity(item.id, item.quantity +1)}> 
+                                    + </button>
                             </div>
                              
                              <p className="checkout-item-total">
-                                ${item.product.price = item.quantity}
+                                ${(item.product.price * item.quantity).toFixed(2)}
                              </p>
-                             <button className="btn btn-secondary btn-small">
+                             <button className="btn btn-secondary btn-small"
+                              onClick={() => removeFromCart(item.id)}>
                                 Remove
                              </button>
                         </div>

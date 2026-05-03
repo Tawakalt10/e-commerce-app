@@ -30,12 +30,24 @@ setCartItems(updatedCartIems);
     })).filter(item => item.product);
  }
 
+ function removeFromCart (productId){
+    setCartItems(cartItems.filter(item=> item.id !== productId))
+ }
+
  function updateQuantity(productId, quantity) {
-    
+    if( quantity <= 0){
+        removeFromCart(productId)
+        return;
+    }
+    setCartItems (
+        cartItems.map((item) =>
+        item.id === productId ? {...item, quantity} : item
+    )
+    );
  }
 
 return ( 
-   <CartContext.Provider value={{cartItems, addToCart, getCartItemsWithProducts }}> {children}
+   <CartContext.Provider value={{cartItems, addToCart, getCartItemsWithProducts, removeFromCart, updateQuantity }}> {children}
 
    </CartContext.Provider>
    
