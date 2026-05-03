@@ -1,8 +1,13 @@
 import { useCart } from "../components/context/CartContext"
 
 export default function Checkout() {
-    const {getCartItemsWithProducts, updateQuantity, removeFromCart} = useCart ();
+    const {getCartItemsWithProducts, 
+        updateQuantity,
+         removeFromCart, 
+         getCartTotal,} 
+         = useCart ();
     const cartItems = getCartItemsWithProducts ();
+    const total = getCartTotal ();
     return ( 
     <div className="page">
         <div className="container">
@@ -48,6 +53,10 @@ export default function Checkout() {
                         </div>
                 ))}
                 
+                </div>
+
+                <div className="checkout-summary">
+
                 </div>
 
              </div>

@@ -46,8 +46,25 @@ setCartItems(updatedCartIems);
     );
  }
 
+ function getCartTotal(){
+    const total = cartItems.reduce((total, item =>{
+        const product = getProductById(item.id)
+        return total + (product ? product.price * product.quantity : 0);
+    }, 0)
+    return total;
+ }
+
 return ( 
-   <CartContext.Provider value={{cartItems, addToCart, getCartItemsWithProducts, removeFromCart, updateQuantity }}> {children}
+   <CartContext.Provider 
+   value={{
+    cartItems,
+     addToCart, 
+     getCartItemsWithProducts,
+      removeFromCart, 
+      updateQuantity,
+      getCartTotal, 
+      }}>
+         {children}
 
    </CartContext.Provider>
    
