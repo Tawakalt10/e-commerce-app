@@ -56,7 +56,16 @@ export default function Checkout() {
                 </div>
 
                 <div className="checkout-summary">
+                   <h2 className="checkoUt-secton-title">Total</h2>
+                   <div className="checkout-total"> 
+                    <p className="checkout-total-label">Subtotal:</p>
+                    <p className="checkout-total-value">${total.toFixed(2)}</p>
+                   </div>
+                   <div className="checkout-total">
+                    <p className="checkout-total-label">Total:</p>
+                    <p className="checkout-total-value"></p>
 
+                   </div>
                 </div>
 
              </div>
